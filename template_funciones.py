@@ -502,6 +502,7 @@ def recortar_grafo(A, l):
     Ap: sub-matriz compuesta por nodos cuyo valor es positivo.
     An: sub-matriz compuesta por nodos cuyo valor es negativo.
   """
+  # guardamos los indices correspondientes a las componentes pos. y neg.
   pos_idx = []
   neg_idx = []
   for i in range(len(l)):
@@ -510,16 +511,19 @@ def recortar_grafo(A, l):
     elif l[i] < 0:
       neg_idx.append(i)
 
+  # inicializamos matrices con el tamaño necesario dada la # de indices
   Ap = np.zeros((len(pos_idx), len(pos_idx)))
   An = np.zeros((len(neg_idx), len(neg_idx)))
 
   for i in range(len(A)):
     for j in range(len(A)):
       if A[i][j] != 0:
+        # si ambos pertenecen a la comunidad pos. 
         if i in pos_idx and j in pos_idx:
           ii = pos_idx.index(i)
           jj = pos_idx.index(j)
           Ap[ii][jj] = A[i][j]
+        # si ambos pertenecen a la comunidad neg.
         elif i in neg_idx and j in neg_idx:
           ii = neg_idx.index(i)
           jj = neg_idx.index(j)
