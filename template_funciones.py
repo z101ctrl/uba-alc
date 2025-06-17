@@ -236,18 +236,18 @@ def calcula_B(C,r):
 
 
 def calcula_K(A):
-  """
-  Dada una matriz K calcula la matriz K cuya diagonal tiene
-  la suma de los valores de las filas de A.
+   """
+   Dada una matriz K calcula la matriz K cuya diagonal tiene
+   la suma de los valores de las filas de A.
 
-  Parámetros
-  ----------
+   Parámetros
+   ----------
     * A: matriz A.
 
-  Devuelve
-  ----------
-    * K: matriz K diagonal.
-  """
+   Devuelve
+   ----------
+     * K: matriz K diagonal.
+   """
    n, m = A.shape
    K = np.eye(n)
    for i in range(n):
