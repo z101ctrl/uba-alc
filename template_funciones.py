@@ -445,7 +445,6 @@ def metpotI(A,mu,tol=1e-8,maxrep=np.inf):
    * l1: primer autovalor de A.
    * bool: 'True' si el método llegó a converger.
   """
-  # TODO: aca usar el que invierte matrices LU.
   A_shift = A + mu * np.eye(A.shape[0])
   return metpot1(inv(A_shift),tol=tol,maxrep=maxrep)
 
@@ -494,7 +493,6 @@ def recortar_grafo(A, l):
   pos_idx = []
   neg_idx = []
   for i in range(len(l)):
-    # TODO: revisar esto.
     if l[i] >= 0:
       pos_idx.append(i)
     elif l[i] < 0:
