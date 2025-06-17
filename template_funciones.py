@@ -447,7 +447,7 @@ def metpotI(A,mu,tol=1e-8,maxrep=np.inf):
   """
   # TODO: aca usar el que invierte matrices LU.
   A_shift = A + mu * np.eye(A.shape[0])
-  return metpot1(np.linalg.inv(A_shift),tol=tol,maxrep=maxrep)
+  return metpot1(inv(A_shift),tol=tol,maxrep=maxrep)
 
 
 def metpotI2(A,mu,tol=1e-8,maxrep=np.inf):
@@ -471,7 +471,7 @@ def metpotI2(A,mu,tol=1e-8,maxrep=np.inf):
    """
    # Retorna el segundo autovector, su autovalor, y si el metodo llegó a converger.
    X = A + mu * np.eye(A.shape[0]) # Calculamos la matriz A shifteada en mu
-   iX = np.linalg.inv(X) # La invertimos
+   iX = inv(X) # La invertimos
    defliX = deflaciona(iX) # La deflacionamos
    v,l,_ = metpot1(defliX) # Buscamos su segundo autovector
    l = 1/l # Reobtenemos el autovalor correcto
