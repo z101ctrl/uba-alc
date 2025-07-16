@@ -553,14 +553,12 @@ def laplaciano_iterativo(A,niveles,nombres_s=None):
         return([nombres_s])
     else: # Sino:
         L = calcula_L(A) # Recalculamos el L
-        deflL = deflaciona(L)
-        v,l,_ = metpot1(deflL) # Encontramos el segundo autovector de L
+        v,l,_ = metpotI2(L, 1) # Encontramos el segundo autovector de L
 
         # Recortamos A en dos partes, la que está asociada a el signo positivo de v y la que está asociada al negativo
         Ap, Am = recortar_grafo(A, v) # Asociado al signo positivo, asociado al signo negativo
 
         return(
-                # TODO: revisar
                 laplaciano_iterativo(Ap,niveles-1,
                                      nombres_s=[ni for ni,vi in zip(nombres_s,v) if vi>=0]) +
                 laplaciano_iterativo(Am,niveles-1,
