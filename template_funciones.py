@@ -340,7 +340,7 @@ def calcula_Q(R,v):
     """
     Dada una matriz A calcula la matriz Q, siendo Q
 
-    Q = (1/4E) * (<s, <R, s>>)
+    Q = (<s, <R, s>>)
 
     siendo <,> el producto interno usual.
 
@@ -353,9 +353,8 @@ def calcula_Q(R,v):
     ----------
       * Q: matriz Q.
     """
-    dos_E = np.sum(A)
     s = np.sign(v)
-    Q = (1/(dos_E*2)) * (s @ R @ s)
+    Q = (s @ R @ s)
     return Q
 
 
