@@ -375,6 +375,7 @@ def metpot1(A,tol=1e-8,maxrep=np.inf):
     * l1: primer autovalor de A.
     * bool: 'True' si el método llegó a converger.
   """
+  print(np.random.rand(1)[0])
   v = np.random.rand(A.shape[1]) # Generamos un vector de partida aleatorio, entre -1 y 1
   v = v / np.linalg.norm(v) # Lo normalizamos
   v1 = A @ v # Aplicamos la matriz una vez
